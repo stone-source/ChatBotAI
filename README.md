@@ -14,12 +14,12 @@ Backend API zosta³o zaprojektowane zgodnie z zasadami **Clean Architecture**, z 
 
 Na obecnym etapie projekt nie zawiera jeszcze wielu kluczowych mechanizmów produkcyjnych, które nale¿y dodaæ w kolejnych iteracjach:
 
-- ? Obs³uga wyj¹tków (global error handling)
-- ? Walidacja danych wejœciowych (np. za pomoc¹ FluentValidation)
-- ? Mapowanie danych (np. z u¿yciem AutoMapper)
-- ? Testy jednostkowe (np. z u¿yciem xUnit)
+- Obs³uga wyj¹tków (global error handling)
+- Walidacja danych wejœciowych (np. za pomoc¹ FluentValidation)
+- Mapowanie danych (np. z u¿yciem AutoMapper)
+- Testy jednostkowe (np. z u¿yciem xUnit)
 
-?? **ToDo**: Powy¿sze funkcjonalnoœci s¹ przewidziane do implementacji w przysz³oœci.
+**ToDo**: Powy¿sze funkcjonalnoœci s¹ przewidziane do implementacji w przysz³oœci.
 
 ---
 
