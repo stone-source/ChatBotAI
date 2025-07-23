@@ -1,0 +1,42 @@
+<!-- src/app/app.component.html -->
+<div class="chat-wrapper">
+    <mat-toolbar color="primary">
+        <span>AI Assistant</span>
+    </mat-toolbar>
+
+    <div class="chat-container" #chatContainer>
+        <mat-spinner *ngIf="isLoading" class="spinner"></mat-spinner>
+        <div *ngFor="let message of messages" class="message-row" [ngClass]="message.sender">
+            <mat-card
+                [ngClass]="{ 'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot' }">
+                <mat-card-content [style.white-space]="'pre-wrap'">
+                    {{ message.text }}
+                </mat-card-content>
+
+                <mat-card-actions *ngIf="message.sender === 'bot' && message.botData && message.text.length > 0 && !isMessageGenerating" align="end">
+                    <button mat-icon-button (click)="rateMessage(message, true)" [disabled]="message.isRated"
+                        [color]="message.botData.rating === true ? 'primary' : ''" aria-label="Like">
+                        <mat-icon>thumb_up</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="rateMessage(message, false)" [disabled]="message.isRated"
+                        [color]="message.botData.rating === false ? 'warn' : ''" aria-label="Dislike">
+                        <mat-icon>thumb_down</mat-icon>
+                    </button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+
+    <div class="input-area">
+        <mat-form-field appearance="outline" class="input-field">
+            <mat-label>Type a question...</mat-label>
+            <input matInput [formControl]="userInput" (keydown.enter)="handleSendOrCancel()"
+                [disabled]="isMessageGenerating">
+        </mat-form-field>
+
+        <button mat-fab [color]="isMessageGenerating ? 'warn' : 'primary'" (click)="handleSendOrCancel()"
+            aria-label="Send or cancel message">
+            <mat-icon>{{ isMessageGenerating ? 'cancel' : 'send' }}</mat-icon>
+        </button>
+    </div>
+</div>
