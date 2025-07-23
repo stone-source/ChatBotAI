@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChatBotAI.Domain\ChatBotAI.Domain.csproj" />
+    <ProjectReference Include="..\ChatBotAI.Infrastructure\ChatBotAI.Infrastructure.csproj" />
+    <ProjectReference Include="..\ChatBotAI.Core\ChatbotAI.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AiEngineResponses\Queries\" />
+    <Folder Include="Conversations\Commands\" />
+    <Folder Include="Conversations\Dto\" />
+    <Folder Include="UserRequests\Queries\" />
+  </ItemGroup>
+
+</Project>
