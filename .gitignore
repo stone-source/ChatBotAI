@@ -1,0 +1,98 @@
+############################################
+# C# / .NET / Visual Studio
+############################################
+
+## Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Ll]ogs/
+
+## User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+## VS folders
+.vs/
+_TestResults/
+TestResults/
+*.cache
+*.dbmdl
+*.pdb
+*.mdb
+*.opendb
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+## Rider (JetBrains)
+.idea/
+
+############################################
+# Visual Studio Code
+############################################
+.vscode/
+.history/
+
+############################################
+# Angular / Node.js
+############################################
+
+## Node modules
+node_modules/
+
+## Build output
+dist/
+out-tsc/
+
+## Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+## Angular cache
+.angular/
+
+## Environment files
+.env
+.env.*.local
+
+## Coverage reports
+coverage/
+
+## Others
+package-lock.json
+yarn.lock
+
+############################################
+# WebStorm / JetBrains IDEs
+############################################
+
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# IDE-specific caches
+out/
+flow-typed/
+webpack-stats.json
+*.log
+*.log.*
+
+############################################
+# OS-specific
+############################################
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
