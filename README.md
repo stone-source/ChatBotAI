@@ -1,55 +1,52 @@
-# Instrukcja uruchomienia aplikacji ChatBotAI
+# ChatBotAI Application Startup Guide
 
-Poniøej znajdziesz kroki niezbÍdne do uruchomienia pe≥nej aplikacji, sk≥adajπcej siÍ z bazy danych, backendu (API) oraz interfejsu uøytkownika.
-
----
-
-## Informacje o architekturze i dalszym rozwoju
-
-W dokumentacji projektu znajduje siÍ przyk≥adowa **tablica Event Sourcing**, ktÛra obrazuje zdarzenia zachodzπce w systemie. Moøe ona pos≥uøyÊ jako punkt odniesienia przy rozbudowie aplikacji oraz implementacji mechanizmÛw rejestrowania i úledzenia zmian w systemie.
-
-Backend API zosta≥o zaprojektowane zgodnie z zasadami **Clean Architecture**, z zastosowaniem wzorca **CQRS** oraz biblioteki **MediatR** jako mechanizmu mediatora. Ca≥a struktura API zosta≥a zaplanowana w sposÛb modularny i abstrakcyjny, co u≥atwia jej rozbudowÍ ñ dodawanie nowych funkcjonalnoúci nie wymaga modyfikacji istniejπcych komponentÛw, lecz ich rozszerzania.
-
-### Uwaga: elementy do zaimplementowania
-
-Na obecnym etapie projekt nie zawiera jeszcze wielu kluczowych mechanizmÛw produkcyjnych, ktÛre naleøy dodaÊ w kolejnych iteracjach:
-
-- Obs≥uga wyjπtkÛw (global error handling)
-- Walidacja danych wejúciowych (np. za pomocπ FluentValidation)
-- Mapowanie danych (np. z uøyciem AutoMapper)
-- Testy jednostkowe (np. z uøyciem xUnit)
-
-**ToDo**: Powyøsze funkcjonalnoúci sπ przewidziane do implementacji w przysz≥oúci.
+Below you will find the steps required to launch the complete application, consisting of the database, backend (API), and user interface.
 
 ---
 
-## 1. Baza danych
+## üß± Architecture and Future Development
 
-1. UtwÛrz nowπ bazÍ danych (np. w SQL Server).
-2. Skopiuj zawartoúÊ pliku: /Src/Database/Structures/structures.sql i wykonaj zapytanie SQL w utworzonej bazie aby dodaÊ struktury.
-3. NastÍpnie skopiuj zawartoúÊ pliku: /Src/Database/Data/data.sql i rÛwnieø wykonaj zapytanie w tej samej bazie aby dodaÊ wstÍpne dane.
+The project documentation includes an example **Event Sourcing Table**, which illustrates the events occurring within the system. This can serve as a reference point for extending the application and implementing mechanisms for logging and tracking changes.
 
----
+The backend API has been designed following the principles of **Clean Architecture**, using the **CQRS** pattern and the **MediatR** library as a mediator mechanism. The entire API structure is planned to be modular and abstract, making it easier to extend ‚Äî adding new features does not require modifying existing components, but rather extending them.
 
-## 2. Backend (API)
+### ‚ö†Ô∏è Note: Items Pending Implementation
 
-1. OtwÛrz projekt znajdujπcy siÍ w: /Src/Backend/ChatBotAI za pomocπ IDE (np. Visual Studio lub Rider).
-2. W pliku `appsettings.json` zaktualizuj **Connection String** do bazy danych ñ podaj odpowiedniπ nazwÍ bazy, uøytkownika i has≥o.
-3. Aby korzystaÊ z funkcji OpenAI: - Skonfiguruj **User Secrets** projektu i dodaj tam swÛj `OpenAI API Secret Key` pod odpowiednim kluczem (np. `OpenAI:ApiKey`).
-4. Uruchom projekt ñ API powinno byÊ dostÍpne lokalnie (np. pod `https://localhost:5176`).
+At this stage, the project does not yet include several key production-grade mechanisms, which should be added in future iterations:
 
----
+- Global exception handling
+- Input data validation (e.g., using FluentValidation)
+- Data mapping (e.g., with AutoMapper)
+- Unit tests (e.g., using xUnit)
 
-## 3. Frontend (Angular)
-
-1. OtwÛrz terminal/konsolÍ i przejdü do katalogu: /Src/Frontend/ChatBotAi
-2. Wykonaj instalacjÍ zaleønoúci: npm ci
-3. Uruchom frontendowπ aplikacjÍ: ng serve
-4. Aplikacja powinna byÊ dostÍpna pod adresem: `http://localhost:4200`
+**ToDo**: The above features are planned for future implementation.
 
 ---
 
-## Uwagi koÒcowe
+## 1Ô∏è‚É£ Database Setup
 
-- Upewnij siÍ, øe API dzia≥a i frontend ma poprawnie skonfigurowane po≥πczenie z backendem.
-- W razie problemÛw sprawdü komunikaty b≥ÍdÛw w logach.
+1. Create a new database (e.g., in SQL Server),
+2. Copy the contents of the file: `/Src/Database/Structures/structures.sql` and execute the SQL script in your newly created database to create the structures,
+3. Then, copy the contents of the file: `/Src/Database/Data/data.sql` and execute it in the same database to insert initial data.
+
+---
+
+## 2Ô∏è‚É£ Backend (API)
+
+1. Open the project located at `/Src/Backend/ChatBotAI` using your IDE (e.g., Visual Studio or Rider),
+2. In the `appsettings.json` file, update the **Connection String** to point to your database ‚Äî specify the correct database name, username, and password,
+3. To use OpenAI features:
+   - Configure the project **User Secrets** and add your `OpenAI API Secret Key` under the appropriate key (e.g., `OpenAI:ApiKey`),
+4. Run the project ‚Äî the API should be available locally (e.g., at `https://localhost:5176`).
+
+---
+
+## 3Ô∏è‚É£ Frontend (Angular)
+
+1. Open your terminal/console and navigate to: `/Src/Frontend/ChatBotAi`,
+2. Install dependencies:
+   ```bash
+   npm ci
+3. Start application:
+   ```bash
+   ng serve
