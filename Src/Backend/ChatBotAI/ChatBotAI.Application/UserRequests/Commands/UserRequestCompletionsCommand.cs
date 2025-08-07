@@ -1,7 +1,7 @@
-﻿using ChatbotAI.Core.Commands;
-using ChatBotAI.Application.AiEngineResponses.Dto;
+﻿using ChatBotAI.Application.AiEngineResponses.Dto;
 using ChatBotAI.Application.UserRequests.Dto;
 using System.Diagnostics.CodeAnalysis;
+using ChatBotAI.Application.Core.Commands;
 using MediatR;
 
 namespace ChatBotAI.Application.UserRequests.Commands

@@ -1,4 +1,4 @@
-﻿using ChatbotAI.Core.Endpoints;
+﻿using ChatBotAI.Api.Core.Endpoints;
 using ChatBotAI.API.Configuration;
 using ChatBotAI.Application.AiEngineResponses.Commands;
 using ChatBotAI.Application.AiEngineResponses.Dto;

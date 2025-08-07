@@ -1,7 +1,6 @@
 ﻿using ChatBotAI.Domain.Abstract;
 using Microsoft.Extensions.Configuration;
 using OpenAI.Chat;
-using System.Threading;
 
 namespace ChatBotAI.Domain.Entities
 {
@@ -54,11 +53,11 @@ namespace ChatBotAI.Domain.Entities
                    + "Your ultimate goal is to transform a user's anxiety into structured, prepared confidence, equipping them with the tools and mindset to make the best possible impression.";
         }
 
-        public override async IAsyncEnumerable<string> CallClientAndReturnResponse()
+        public override async IAsyncEnumerable<string> CallClientAndReturnResponse(CancellationToken cancellationToken)
         {
             await foreach (var response in _openAiClient.CompleteChatStreamingAsync(_chatMessages))
             {
-                if (_cancellationToken.IsCancellationRequested)
+                if (cancellationToken.IsCancellationRequested)
                 {
                     yield break;
                 }
@@ -68,7 +67,7 @@ namespace ChatBotAI.Domain.Entities
             }
         }
 
-        public OpenAiStrategy(IConfiguration configuration, CancellationToken cancellationToken) : base(configuration, cancellationToken)
+        public OpenAiStrategy(IConfiguration configuration) : base(configuration)
         {
         }
     }

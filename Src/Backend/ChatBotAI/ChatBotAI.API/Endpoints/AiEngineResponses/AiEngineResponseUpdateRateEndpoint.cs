@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using ChatBotAI.API.Configuration;
+using ChatBotAI.Api.Core.Endpoints;
 using ChatBotAI.Application.AiEngineResponses.Commands;
-using ChatbotAI.Core.Endpoints;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

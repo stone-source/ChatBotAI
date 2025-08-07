@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ChatBotAI.Application.Core\ChatBotAI.Application.Core.csproj" />
     <ProjectReference Include="..\ChatBotAI.Domain\ChatBotAI.Domain.csproj" />
     <ProjectReference Include="..\ChatBotAI.Infrastructure\ChatBotAI.Infrastructure.csproj" />
-    <ProjectReference Include="..\ChatBotAI.Core\ChatbotAI.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

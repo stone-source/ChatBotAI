@@ -8,8 +8,6 @@ namespace ChatBotAI.Domain.Abstract
     {
         protected readonly IConfiguration _configuration;
 
-        protected readonly CancellationToken _cancellationToken;
-
         protected abstract string ConfigurationApiKeyPath { get; }
 
         protected string GetApiKey()
@@ -23,14 +21,13 @@ namespace ChatBotAI.Domain.Abstract
 
         public abstract void AddUserChatMessage(string userRequest);
 
-        public abstract IAsyncEnumerable<string> CallClientAndReturnResponse();
+        public abstract IAsyncEnumerable<string> CallClientAndReturnResponse(CancellationToken cancellationToken = default);
 
         protected abstract string GetSystemPrompt();
 
-        public AiStrategyCore(IConfiguration configuration, CancellationToken cancellationToken)
+        public AiStrategyCore(IConfiguration configuration)
         {
             _configuration = configuration;
-            _cancellationToken = cancellationToken;
         }
     }
 }

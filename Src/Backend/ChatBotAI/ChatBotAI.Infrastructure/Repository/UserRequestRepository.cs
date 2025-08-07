@@ -1,4 +1,4 @@
-﻿using ChatbotAI.Core.Repository;
+﻿using ChatBotAI.Infrastructure.Core.Repository;
 using ChatBotAI.Infrastructure.Abstract;
 using ChatBotAI.Infrastructure.DatabaseContext;
 using ChatBotAI.Infrastructure.DatabaseEntities;

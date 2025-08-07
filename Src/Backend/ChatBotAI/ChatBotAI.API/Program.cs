@@ -1,7 +1,5 @@
-using ChatBotAI.Application.AiEngineResponses.Handlers;
-using ChatBotAI.Application.Conversations.Handlers;
-using ChatBotAI.Application.UserRequests.Handlers;
-using Microsoft.EntityFrameworkCore;
+using ChatBotAI.Application.Service;
+using ChatBotAI.Infrastructure.Service;
 using Serilog;
 
 try
@@ -28,18 +26,9 @@ try
     builder.Services.AddSwaggerGen();
 
     builder.Configuration.AddUserSecrets<Program>();
-    builder.Services.AddDbContext<ChatBotAI.Infrastructure.DatabaseContext.ChatbotAiContext>(
-        options => options
-            .UseSqlServer(builder.Configuration
-            .GetConnectionString("DefaultConnectionString")));
-
-    builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(AiEngineResponseSaveResponseHandler).Assembly));
-    builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(AIEngineResponseUpdateRateHandler).Assembly));
-    builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ConversationGetAllByUserIdHandler).Assembly));
-    builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(UserRequestCompletionsHandler).Assembly));
-    
-    builder.Services.AddTransient<ChatBotAI.Infrastructure.Abstract.IAiEngineResponseRepository, ChatBotAI.Infrastructure.Repository.AiEngineResponseRepository>();
-    builder.Services.AddTransient<ChatBotAI.Infrastructure.Abstract.IUserRequestRepository, ChatBotAI.Infrastructure.Repository.UserRequestRepository>();
+    builder.Services.AddDbContext(builder.Configuration.GetConnectionString("DefaultConnectionString"));
+    builder.Services.AddApplicationServices();
+    builder.Services.AddInfrastructureServices();
 
     var app = builder.Build();
 

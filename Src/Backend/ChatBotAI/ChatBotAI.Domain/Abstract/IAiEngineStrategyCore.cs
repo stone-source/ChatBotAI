@@ -8,6 +8,6 @@
 
         void AddUserChatMessage(string userRequest);
 
-        IAsyncEnumerable<string> CallClientAndReturnResponse();
+        IAsyncEnumerable<string> CallClientAndReturnResponse(CancellationToken cancellationToken = default);
     }
 }

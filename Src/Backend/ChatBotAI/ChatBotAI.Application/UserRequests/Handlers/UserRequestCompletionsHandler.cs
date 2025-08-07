@@ -1,5 +1,5 @@
-﻿using ChatbotAI.Core.Handlers;
-using ChatBotAI.Application.AiEngineResponses.Dto;
+﻿using ChatBotAI.Application.AiEngineResponses.Dto;
+using ChatBotAI.Application.Core.Handlers;
 using ChatBotAI.Application.UserRequests.Commands;
 using ChatBotAI.Domain.Entities;
 using ChatBotAI.Infrastructure.Abstract;
@@ -19,7 +19,7 @@ namespace ChatBotAI.Application.UserRequests.Handlers
             _configuration = configuration;
         }
 
-        public async override IAsyncEnumerable<AiEngineResponseDetailsDto> Handle(UserRequestCompletionsCommand request, CancellationToken cancellationToken)
+        public async override IAsyncEnumerable<AiEngineResponseDetailsDto> Handle(UserRequestCompletionsCommand request, CancellationToken cancellationToken = default)
         {
             var requestId = await SaveRequestToDatabaseAsync(request.UserId, request.UserRequest);
             await foreach (var completion in PerformCompletionAsync(requestId, request.UserRequest, cancellationToken))
@@ -41,13 +41,13 @@ namespace ChatBotAI.Application.UserRequests.Handlers
             return await Task.FromResult(userRequestToSave.Id);
         }
 
-        private async IAsyncEnumerable<AiEngineResponseDetailsDto> PerformCompletionAsync(Guid userRequestId, string userRequest, CancellationToken cancellationToken)
+        private async IAsyncEnumerable<AiEngineResponseDetailsDto> PerformCompletionAsync(Guid userRequestId, string userRequest, CancellationToken cancellationToken = default)
         {
-            var engine = new AiEngine(new OpenAiStrategy(_configuration, cancellationToken));
+            var engine = new AiEngine(new OpenAiStrategy(_configuration));
             engine.BuildAiEngine();
             engine.AddUserRequestMessage(userRequest);
 
-            await foreach (var engineResponseMessage in engine.CallClientAndReturnResponse())
+            await foreach (var engineResponseMessage in engine.CallClientAndReturnResponse(cancellationToken))
             {
                 yield return new AiEngineResponseDetailsDto()
                 {

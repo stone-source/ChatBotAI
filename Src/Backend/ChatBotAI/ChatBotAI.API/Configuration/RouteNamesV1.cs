@@ -1,6 +1,5 @@
-﻿using ChatbotAI.Core.Configurations;
+﻿using ChatBotAI.Api.Core.Configurations;
 using System.Diagnostics.CodeAnalysis;
-using static ChatBotAI.API.Configuration.RouteNamesV1;
 
 namespace ChatBotAI.API.Configuration
 {

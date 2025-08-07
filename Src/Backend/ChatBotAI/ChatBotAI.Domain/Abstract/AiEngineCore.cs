@@ -17,9 +17,9 @@
             EngineStrategy.AddUserChatMessage(userRequestMessage);
         }
 
-        public virtual IAsyncEnumerable<string> CallClientAndReturnResponse()
+        public virtual IAsyncEnumerable<string> CallClientAndReturnResponse(CancellationToken cancellationToken = default)
         {
-            return EngineStrategy.CallClientAndReturnResponse();
+            return EngineStrategy.CallClientAndReturnResponse(cancellationToken);
         }
     }
 }

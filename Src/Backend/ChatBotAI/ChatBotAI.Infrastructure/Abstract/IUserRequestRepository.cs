@@ -1,4 +1,4 @@
-﻿using ChatbotAI.Core.Interfaces;
+﻿using ChatBotAI.Infrastructure.Core.Interfaces;
 using ChatBotAI.Infrastructure.DatabaseEntities;
 
 namespace ChatBotAI.Infrastructure.Abstract;

@@ -25,7 +25,7 @@ namespace ChatBotAI.Domain.Entities
             return String.Empty;
         }
 
-        public override async IAsyncEnumerable<string> CallClientAndReturnResponse()
+        public override async IAsyncEnumerable<string> CallClientAndReturnResponse(CancellationToken cancellationToken = default)
         { 
             const string fakeResponse = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id pretium massa."
                                   + " Morbi auctor malesuada felis, at dignissim nunc mattis ut. Vestibulum volutpat est gravida suscipit vehicula."
@@ -55,7 +55,7 @@ namespace ChatBotAI.Domain.Entities
 
             for (int i = 0; i < responseSentencesRandomSize; i++)
             {
-                if (_cancellationToken.IsCancellationRequested)
+                if (cancellationToken.IsCancellationRequested)
                 {
                     yield break;
                 }
@@ -65,7 +65,7 @@ namespace ChatBotAI.Domain.Entities
             }
         }
 
-        public FakeAiStrategy(IConfiguration configuration, CancellationToken cancellationToken) : base(configuration, cancellationToken)
+        public FakeAiStrategy(IConfiguration configuration) : base(configuration)
         {
         }
     }

@@ -1,11 +1,10 @@
-﻿using ChatbotAI.Core.Endpoints;
-using ChatBotAI.API.Configuration;
-using ChatBotAI.Application.AiEngineResponses.Dto;
+﻿using ChatBotAI.API.Configuration;
 using ChatBotAI.Application.Configuration;
 using ChatBotAI.Application.UserRequests.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
+using ChatBotAI.Api.Core.Endpoints;
 
 namespace ChatBotAI.API.Endpoints.UserRequests
 {

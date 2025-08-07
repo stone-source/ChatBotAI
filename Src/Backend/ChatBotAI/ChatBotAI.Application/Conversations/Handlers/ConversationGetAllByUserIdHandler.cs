@@ -1,7 +1,7 @@
 ﻿using ChatBotAI.Application.AiEngineResponses.Dto;
 using ChatBotAI.Application.Conversations.Queries;
+using ChatBotAI.Application.Core.Handlers;
 using ChatBotAI.Application.UserRequests.Dto;
-using ChatbotAI.Core.Handlers;
 using ChatBotAI.Infrastructure.Abstract;
 
 namespace ChatBotAI.Application.Conversations.Handlers
@@ -15,7 +15,7 @@ namespace ChatBotAI.Application.Conversations.Handlers
             _repository = repository;
         }
 
-        public override async Task<ICollection<AiEngineResponseDetailsDto>> Handle(ConversationGetAllByUserIdQuery query, CancellationToken cancellationToken)
+        public override async Task<ICollection<AiEngineResponseDetailsDto>> Handle(ConversationGetAllByUserIdQuery query, CancellationToken cancellationToken = default)
         {
             List<AiEngineResponseDetailsDto> result = new();
             var allAiEngineResponsesWithRequest = await _repository.GetAllAiEngineResponsesWithRequestByUserId(query.Id);

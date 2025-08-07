@@ -1,5 +1,5 @@
-﻿using ChatbotAI.Core.Handlers;
-using ChatBotAI.Application.AiEngineResponses.Commands;
+﻿using ChatBotAI.Application.AiEngineResponses.Commands;
+using ChatBotAI.Application.Core.Handlers;
 using ChatBotAI.Infrastructure.Abstract;
 
 namespace ChatBotAI.Application.AiEngineResponses.Handlers

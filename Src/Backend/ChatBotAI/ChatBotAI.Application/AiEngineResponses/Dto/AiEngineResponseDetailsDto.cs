@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using ChatBotAI.Application.UserRequests.Dto;
-using ChatbotAI.Core.Interfaces;
+using ChatBotAI.Infrastructure.Core.Interfaces;
 
 namespace ChatBotAI.Application.AiEngineResponses.Dto
 {

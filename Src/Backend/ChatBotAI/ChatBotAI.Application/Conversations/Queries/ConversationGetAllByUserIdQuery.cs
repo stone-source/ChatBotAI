@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using ChatBotAI.Application.AiEngineResponses.Dto;
-using ChatbotAI.Core.Queries;
-using MediatR;
+using ChatBotAI.Application.Core.Queries;
 
 namespace ChatBotAI.Application.Conversations.Queries
 {
